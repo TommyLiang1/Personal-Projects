@@ -1,0 +1,28 @@
+.favorite-menu-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 500px);
+  gap: 3rem;
+  place-content: center;
+  place-items: center;
+  padding: 3rem 0rem;
+}
+
+.favorite-title {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 2rem;
+}
+
+.favorite-empty {
+  text-align: center;
+  font-size: 3rem;
+  margin: 25rem;
+}
+
+.favorite-empty a {
+  text-decoration: none;
+  font-size: 1.25rem;
+  margin: 3rem;
+  padding: 1rem;
+  color: green;
+}

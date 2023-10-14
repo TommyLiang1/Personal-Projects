@@ -1,0 +1,53 @@
+.recipeApp-container {
+  text-align: center;
+}
+
+.search-bar-container {
+  padding-top: 5rem;
+}
+
+.search-bar-container > input {
+  width: 300px;
+  padding: 1rem 1rem;
+  font-size: 1.1rem;
+  border-radius: 15px;
+  border: 0;
+  box-shadow: .25rem .25rem 1rem rgba(0, 0, 0, 0.3);
+}
+
+.search-bar-container > input:focus {
+  outline: none;
+  border: 1px solid grey;
+}
+
+.search-button {
+  margin: .75rem;
+}
+
+.search-button > button {
+  padding: 1rem;
+  margin: 0.5rem 0.75rem;
+  border-radius: 25px;
+  font-size: 1.25rem;
+  border: 0;
+  background: #AAA;
+}
+
+.search-button > button:hover {
+  background: #CCC;
+  cursor: pointer;
+}
+
+.error-msg {
+  color: rgba(255, 0, 0, 0.7);
+  font-size: 1.2rem;
+}
+
+.menu-list-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 500px);
+  gap: 3rem;
+  place-content: center;
+  place-items: center;
+  padding: 3rem 0rem;
+}
