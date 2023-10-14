@@ -1,3 +1,5 @@
+<h1>The Recipe CookBook</h1>
+
 ## Features
 
 - A user can search for meals in the Recipe Cook Book
