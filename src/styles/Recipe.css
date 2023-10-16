@@ -1,0 +1,96 @@
+.recipe-container {
+  border: 2px solid red;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2rem;
+  margin: 3rem;
+  text-align: center;
+}
+
+.recipe-content {
+  margin: auto 2rem;
+}
+
+.recipe-desc {
+  font-size: 1.5rem;
+  margin: 1rem auto;
+}
+
+.recipe-img {
+  width: 500px;
+  border-radius: 50%;
+}
+
+.recipe-tags {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: .5rem;
+}
+
+.recipe-tags i {
+  padding: 1rem;
+}
+
+.recipe-links {
+  width: 90%;
+  margin: 1rem 1rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.recipe-links a {
+  text-decoration: none;
+}
+
+.recipe-source, .recipe-youtube {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: black;
+  font-size: 1.5rem;
+  margin: 0rem 0.5rem;
+}
+
+.recipe-source:hover {
+  color: grey;
+}
+
+.recipe-youtube:hover {
+  color: rgba(255, 0, 0, 0.5);
+}
+
+.fa-arrow-up-right-from-square, .fa-youtube {
+  margin: 0rem .5rem;
+}
+
+.fa-youtube {
+  color: red;
+}
+
+.recipe-ingredient-container {
+  max-width: 500px;
+  display: block;
+}
+
+.recipe-ingredient-title {
+  text-align: left;
+  font-size: 1.5rem;
+}
+
+.recipe-ingredient {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 1.25rem;
+
+  margin: 0;
+  padding: 0;
+}
+
+.recipe-instructions {
+  border: 2px solid red;
+  margin-top: 2rem;
+}

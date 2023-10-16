@@ -1,46 +1,82 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { addFavMeal, removeFavMeal } from "../api/TheMealDB";
+import DropdownMenu from "./DropdownMenu";
 import "../styles/MenuItem.css";
 
 const MenuItem = (props) => {
   const [item, setItem] = useState([]);
   const [ingredients, setIngredients] = useState([]);
   const [heart, setHeart] = useState(props.heart);
+  const [dropdown, setDropdown] = useState(false);
 
-  const toggleFavorite = () => {
+  const navigate = useNavigate();
+
+  // Add / Remove Meals to Local Storage
+  const toggleFavorite = (e) => {
+    e.stopPropagation();
     if (!heart) addFavMeal(item.idMeal);
     else removeFavMeal(item.idMeal);
 
     setHeart(!heart);
   };
 
+  // Set Recipe Item
   useEffect(() => {
     setItem(props.item);
   }, [props.item]);
 
+  // Set Ingredients
   useEffect(() => {
     let ingredient = "strIngredient";
     for (let i = 1; i <= 20; i++) {
       let combinedIngred = ingredient + i;
-      if (props.item[combinedIngred] === "") break;
+      if (
+        props.item[combinedIngred] === "" ||
+        props.item[combinedIngred] === null
+      )
+        break;
       setIngredients((prevArray) => [...prevArray, props.item[combinedIngred]]);
     }
     // eslint-disable-next-line
   }, []);
 
   return (
-    <div className="menuItem-container">
+    <div
+      className="menuItem-container"
+      onClick={() => {
+        navigate(`/recipe/${item.idMeal}`);
+      }}
+    >
       <h1 className="meal-name">{item.strMeal}</h1>
-      <div className="meal-desc">Region: {item.strArea}</div>
-      <div className="meal-desc">Category: {item.strCategory}</div>
-      <div className="meal-ingredient">
-        Ingredients ({ingredients.length})
-        <div className="meal-ingredient-list">
-          {ingredients.map((ingredient, i) => {
-            return <span key={i}> {ingredient} |</span>;
-          })}
-        </div>
+
+      <div>
+        {!dropdown ? (
+          <i
+            className="fa fa-caret-down dropdown-icon"
+            onClick={(e) => {
+              e.stopPropagation();
+              setDropdown(!dropdown);
+            }}
+          ></i>
+        ) : (
+          <i
+            className="fa fa-caret-up dropdown-icon"
+            onClick={(e) => {
+              e.stopPropagation();
+              setDropdown(!dropdown);
+            }}
+          ></i>
+        )}
+        {dropdown && (
+          <DropdownMenu
+            ingredients={ingredients}
+            area={item.strArea}
+            category={item.strCategory}
+          />
+        )}
       </div>
+
       <img className="meal-img" src={item.strMealThumb} alt="" />
 
       {heart ? (

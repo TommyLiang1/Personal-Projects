@@ -1,0 +1,19 @@
+.dropdown-container {
+  position: absolute;
+  width: 75%;
+  top: 3.25rem;
+  right: 1rem;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 1rem;
+  border-radius: 20px;
+  z-index: 1;
+}
+
+.meal-desc {
+  margin: .5rem 0rem;
+}
+
+.meal-ingredient-list {
+  margin-top: .5rem;
+}

@@ -35,6 +35,30 @@ export const getMealById = async (id) => {
   return fetchedData;
 };
 
+export const getCategories = async () => {
+  const fetchedData = await fetch(
+    "https://themealdb.com/api/json/v1/1/categories.php"
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      return data;
+    });
+
+  return fetchedData;
+};
+
+export const getMealsByCategory = async (category) => {
+  const fetchedData = await fetch(
+    "https://themealdb.com/api/json/v1/1/filter.php?c=" + category
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      return data;
+    });
+
+  return fetchedData;
+};
+
 export const addFavMeal = (mealId) => {
   const mealIds = getFavMeals();
 

@@ -10,6 +10,7 @@ const Favorite = () => {
   const mealIdList = JSON.parse(localStorage.getItem("mealIds"));
   const [favoriteMeals, setFavoriteMeals] = useState([]);
 
+  // Retrieve meals from Local Storage
   useEffect(() => {
     if (mealIdList !== null && mealIdList.length > 0) {
       mealIdList.map(async (mealId) => {
