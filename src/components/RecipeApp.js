@@ -35,13 +35,10 @@ const RecipeApp = () => {
 
   // API: get random recipe
   const retrieveRandomMeal = async () => {
-    console.log("first call");
     setMenuItems([]);
-    console.log("2 call");
     await getRandomMeal().then((res) => {
-      console.log("3 call");
       setMenuItems(res.meals);
-      console.log("4 call");
+      console.log(res.meals);
       setErrorMsg("");
     });
   };
@@ -108,7 +105,8 @@ const RecipeApp = () => {
 
       {menuItems?.length > 0 && (
         <div className="menu-list-container">
-          {menuItems.map((item) => {
+          {menuItems.length}
+          {/* {menuItems.map((item) => {
             return (
               <MenuItem
                 key={item.idMeal}
@@ -116,7 +114,7 @@ const RecipeApp = () => {
                 heart={mealIdList.includes(item.idMeal)}
               />
             );
-          })}
+          })} */}
         </div>
       )}
 
