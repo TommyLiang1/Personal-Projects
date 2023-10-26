@@ -57,7 +57,7 @@ const Recipe = () => {
           <div className="recipe-desc">Region: {recipe.strArea}</div>
           <div className="recipe-desc">Category: {recipe.strCategory}</div>
           <img className="recipe-img" src={recipe.strMealThumb} alt="" />
-          {tags.length !== 0 && (
+          {tags?.length !== 0 && (
             <div className="recipe-tags">
               <i className="fa fa-tags"></i>
               <div>
@@ -101,7 +101,7 @@ const Recipe = () => {
               })}
             </div>
           </div>
-          {instructions.length !== 0 && (
+          {instructions?.length !== 0 && (
             <div className="recipe-instruction-container">
               <div className="recipe-instruction-title">Instructions</div>
               {instructions.map((instruction, i) => {

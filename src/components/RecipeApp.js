@@ -35,9 +35,13 @@ const RecipeApp = () => {
 
   // API: get random recipe
   const retrieveRandomMeal = async () => {
+    console.log("first call");
     setMenuItems([]);
+    console.log("2 call");
     await getRandomMeal().then((res) => {
+      console.log("3 call");
       setMenuItems(res.meals);
+      console.log("4 call");
       setErrorMsg("");
     });
   };
@@ -75,7 +79,7 @@ const RecipeApp = () => {
     <div className="recipeApp-container">
       <Navbar />
 
-      {category.length > 0 && (
+      {category?.length > 0 && (
         <div className="category-list-container">
           {category.map((cat) => {
             return (
@@ -102,7 +106,7 @@ const RecipeApp = () => {
         <div className="error-msg">{errorMsg}</div>
       </div>
 
-      {menuItems.length > 0 && (
+      {menuItems?.length > 0 && (
         <div className="menu-list-container">
           {menuItems.map((item) => {
             return (

@@ -24,7 +24,7 @@ const Favorite = () => {
   return (
     <div>
       <Navbar />
-      {favoriteMeals.length === 0 ? (
+      {favoriteMeals?.length === 0 ? (
         <div className="favorite-empty">
           <div>No Favorite Meals</div>
           <a href="/">Add A Favorite Meal</a>
