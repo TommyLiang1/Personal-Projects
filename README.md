@@ -14,11 +14,18 @@
 - A user can view their favorite meals from the Recipe Cook Book
   ![screenshot](src/Assets/FavoriteMeals.JPG)
 
+- A user can navigate to a single recipe page view
+  ![screenshot](src/Assets/SingleRecipePage.JPG)
+
+- Web Application is responsive for various screen sizes
+  ![screenshot](src/Assets/Responsive.JPG)
+
 ## Tools
 
 - React
 - TheMealDB API
 - Visual Studio Code
+- Font Awesome Icons
 
 ## Getting Started
 
