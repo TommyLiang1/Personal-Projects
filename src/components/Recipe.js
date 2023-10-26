@@ -39,8 +39,14 @@ const Recipe = () => {
         if (mealData.strTags !== null) setTags(mealData.strTags.split(","));
 
         // Parse Instructions
-        if (mealData.strInstructions !== null)
-          setInstructions(mealData.strInstructions.split("."));
+        if (mealData.strInstructions !== null) {
+          let instr = mealData.strInstructions.split(".");
+          setInstructions(
+            instr.filter((word) => {
+              return word.length > 5;
+            })
+          );
+        }
       });
     };
 
