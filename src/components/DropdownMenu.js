@@ -13,7 +13,9 @@ const DropdownMenu = (props) => {
         Ingredients ({ingredients.length})
         <div className="meal-ingredient-list">
           {ingredients.map((ingredient, i) => {
-            return <span key={i}> {ingredient} |</span>;
+            if (i !== ingredients.length - 1)
+              return <span key={i}>{ingredient}, </span>;
+            return <span key={i}>{ingredient}</span>;
           })}
         </div>
       </div>

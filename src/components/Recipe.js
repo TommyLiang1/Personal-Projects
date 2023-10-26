@@ -10,6 +10,8 @@ const Recipe = () => {
   const params = useParams();
   const [recipe, setRecipe] = useState([]);
   const [ingredients, setIngredients] = useState([]);
+  const [instructions, setInstructions] = useState([]);
+  const [tags, setTags] = useState([]);
 
   // Retrieve recipe info
   useEffect(() => {
@@ -32,6 +34,13 @@ const Recipe = () => {
             mealData[combinedIngred],
           ]);
         }
+
+        // Parse Tags
+        if (mealData.strTags !== null) setTags(mealData.strTags.split(","));
+
+        // Parse Instructions
+        if (mealData.strInstructions !== null)
+          setInstructions(mealData.strInstructions.split("."));
       });
     };
 
@@ -40,7 +49,7 @@ const Recipe = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <Navbar />
       <div className="recipe-container">
         <div className="recipe-content">
@@ -48,14 +57,16 @@ const Recipe = () => {
           <div className="recipe-desc">Region: {recipe.strArea}</div>
           <div className="recipe-desc">Category: {recipe.strCategory}</div>
           <img className="recipe-img" src={recipe.strMealThumb} alt="" />
-          {/* Ingredients
-            Instructions
-            Measure
-         */}
-          {recipe.strTags && (
+          {tags.length !== 0 && (
             <div className="recipe-tags">
               <i className="fa fa-tags"></i>
-              <div>{recipe.strTags}</div>
+              <div>
+                {tags.map((tag, i) => {
+                  if (i !== tags.length - 1)
+                    return <span key={i}>{tag}, </span>;
+                  return <span key={i}>{tag}</span>;
+                })}
+              </div>
             </div>
           )}
           <div className="recipe-links">
@@ -78,21 +89,33 @@ const Recipe = () => {
           </div>
         </div>
         <div className="recipe-content">
-          <div className="recipe-ingredient-title">Ingredients</div>
-          <div className="recipe-ingredient">
-            {ingredients.map((ingredient, i) => {
-              return (
-                <div key={i}>
-                  {i + 1}. {ingredient}
-                </div>
-              );
-            })}
+          <div className="recipe-ingredient-container">
+            <div className="recipe-ingredient-title">Ingredients</div>
+            <div className="recipe-ingredient">
+              {ingredients.map((ingredient, i) => {
+                return (
+                  <div key={i}>
+                    {i + 1}. {ingredient}
+                  </div>
+                );
+              })}
+            </div>
           </div>
-          <div className="recipe-instructions">Instructions</div>
-          {/* <div className="">{recipes.strInstructions}</div> */}
+          {instructions.length !== 0 && (
+            <div className="recipe-instruction-container">
+              <div className="recipe-instruction-title">Instructions</div>
+              {instructions.map((instruction, i) => {
+                return (
+                  <div key={i} className="recipe-instruction">
+                    {i + 1}. {instruction}.
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

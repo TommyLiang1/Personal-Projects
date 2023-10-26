@@ -8,6 +8,7 @@
   padding: 1rem;
   border-radius: 20px;
   z-index: 1;
+  transition: all 500ms;
 }
 
 .meal-desc {
@@ -16,4 +17,10 @@
 
 .meal-ingredient-list {
   margin-top: .5rem;
+}
+
+@media (max-width: 678px) {
+  .dropdown-container {
+    width: 90%;
+  }
 }
