@@ -1,7 +1,7 @@
 {
   "name": "recipe-app",
   "version": "0.1.0",
-  "homepage": "https://TommyLiang1.github.io/Recipe-App",
+  "homepage": "https://TommyLiang1.github.io/Recipe-App/#",
   "private": true,
   "proxy": "https://www.themealdb.com",
   "dependencies": {
