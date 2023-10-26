@@ -38,7 +38,6 @@ const RecipeApp = () => {
     setMenuItems([]);
     await getRandomMeal().then((res) => {
       setMenuItems(res.meals);
-      console.log(res.meals);
       setErrorMsg("");
     });
   };
@@ -105,16 +104,15 @@ const RecipeApp = () => {
 
       {menuItems?.length > 0 && (
         <div className="menu-list-container">
-          {menuItems.length}
-          {/* {menuItems.map((item) => {
+          {menuItems.map((item) => {
             return (
               <MenuItem
                 key={item.idMeal}
                 item={item}
-                heart={mealIdList.includes(item.idMeal)}
+                heart={mealIdList?.includes(item.idMeal)}
               />
             );
-          })} */}
+          })}
         </div>
       )}
 
